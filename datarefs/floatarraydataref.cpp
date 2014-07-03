@@ -68,6 +68,9 @@ void FloatArrayDataRef::setValue(QString &newValue) {
 
     // Convert values to float and copy to _valueArray
     for(int i=0;i<numberOfValuesToWrite;i++) {
+        if (values[i].isEmpty())
+            continue;
+
         bool ok = true;
         float value = values[i].toFloat(&ok);
         if(!ok) {
